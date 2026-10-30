@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/wordmark-light-text.png">
-    <img alt="KGX DriveKit" src="assets/wordmark-dark-text.png" width="420">
+    <source media="(prefers-color-scheme: dark)" srcset="wordmark-light-text.png">
+    <img alt="KGX DriveKit" src="wordmark-dark-text.png" width="420">
   </picture>
 </p>
 
@@ -21,7 +21,7 @@ From the [Releases](../../releases) page, get one of:
 **Requirements**
 
 - Windows 10 or 11 (64-bit)
-- Microsoft Edge (built into Windows) or Google Chrome. The program's window is shown through it.
+- Microsoft Edge WebView2 Runtime, which Windows 11 and an up-to-date Windows 10 already include. The program draws its own window with it. If it's missing, the program opens in a Microsoft Edge window instead.
 
 Everything the tool keeps (settings, move history, update downloads) stays in its own folder, `…\KGXtools\KGX DriveKit\KGXDriveKit Data`. Nothing is written anywhere else on your PC.
 
@@ -72,7 +72,7 @@ Other files in the folder are kept, and folders you moved with KGX DriveKit stay
 
 Run KGX DriveKit as administrator (**Restart as administrator**, top right) and scanning a whole NTFS drive reads the drive's file table (the MFT) in a few large reads instead of opening every folder. A full C: usually takes seconds instead of minutes, and nothing shows as **NO ACCESS**. It only reads; nothing on the drive is changed.
 
-Scanning a folder, a drive that isn't NTFS, or running without administrator rights uses the normal folder-by-folder scan, which also reads several folders at once. Turn the fast scan off in **Settings → Scanning**.
+A folder that the last scan found with 20,000 files or more (**Scan** on its row in **Explore**) is read the same way. Smaller folders, a drive that isn't NTFS, or running without administrator rights use the normal folder-by-folder scan, which also reads several folders at once. Turn the fast scan off in **Settings → Scanning**.
 
 ### Progress
 
@@ -135,7 +135,7 @@ Note: the Windows folder looks bigger than it really is, because Windows stores 
 | Some folders show **NO ACCESS** | Use **Restart as administrator** and scan again. A whole-drive scan as administrator reads every folder. |
 | A file is "in use" | Use **Show process** in the dialog, close that program, and try again. Or use **Force stop process tree and delete**. |
 | Virus scan says Defender isn't available | Another antivirus is installed and has turned Defender off. Use that antivirus instead. |
-| The window doesn't open | Install or repair Microsoft Edge, or run the program from Command Prompt to see the local address and open it in any browser. |
+| The window doesn't open | Install the [WebView2 Runtime](https://developer.microsoft.com/microsoft-edge/webview2/) (Evergreen), or start the program with `--edge-window` to use a Microsoft Edge window. From Command Prompt it also shows the local address to open in any browser. |
 
 ## License
 
