@@ -1,0 +1,20 @@
+# SAFEGUARD: this repository is binary-only. Source code must never be committed.
+# The exe is published on the Releases page, not in the repository.
+
+# Go source and build files
+*.go
+go.mod
+go.sum
+*.bat
+src/
+web/
+dist/
+
+# Binaries (upload to Releases instead)
+*.exe
+*.zip
+
+# Local data (settings, move history, browser profile)
+KGXDriveKit Data/
+*.json
+.env
